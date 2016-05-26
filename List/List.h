@@ -196,9 +196,19 @@ public:
 
 	}
 
+	void Swap(iterator& it)
+	{
+		swap(it->_prev, it->_next);
+	}
 	void reverse()
 	{
-
+		iterator it_begin = begin(), it_end = end(), prev;
+		while (it_begin != it_end)
+		{
+			prev = it_begin++;
+			Swap(prev);
+		}
+		Swap(it_end);
 	}
 
 protected:
