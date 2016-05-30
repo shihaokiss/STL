@@ -3,5 +3,5 @@
 #include<vector>
 #include<assert.h>
 #define _list_
-//#define _LIST_
+#define _vector_
 using namespace std;

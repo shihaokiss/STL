@@ -19,18 +19,21 @@ struct ListNode
 template<class T>
 struct ListIterator
 {
-	typedef ListNode<T>* link_type;
-	typedef ListIterator<T> self;
+	typedef T ValueType;
+	typedef T* Pointer;
+	typedef T& Reference;
+	typedef ListNode<T>* LinkType;
+	typedef ListIterator<T> Self;
 	/*成员对象*/
-	link_type _node;
+	LinkType _node;
 
 	/*两个构造函数*/
 	ListIterator(){};
-	ListIterator(link_type node_pointer) :_node(node_pointer){};
+	ListIterator(LinkType node_pointer) :_node(node_pointer){};
 	/*拷贝构造函数*/
-	ListIterator(const self& node) :_node(node._node){};
+	ListIterator(const Self& node) :_node(node._node){};
 	/*赋值运算符的重载*/
-	self& operator = (const self& node)
+	Self& operator = (const Self& node)
 	{ 
 		if (this != &node)
 			_node = node._node; 
@@ -38,20 +41,20 @@ struct ListIterator
 	};
 
 	/*重载各种方法*/
-	bool operator == (self& It)
+	bool operator == (Self& It)
 	{
 		return _node == It._node;
 	}
-	bool operator!=(self& It)
+	bool operator!=(Self& It)
 	{
 		return _node != It._node;
 	}
-	link_type operator -> (){ return _node; }
+	LinkType operator -> (){ return _node; }
 	T& operator* (){ return _node->_value; };
-	self& operator ++ (){ _node = _node->_next; return *this; };
-	self operator ++ (int){ self tmp = *this; ++*this; return tmp; }
-	self& operator -- (){ _node = _node->_prev; return *this; };
-	self& operator -- (int){ self tmp = *this; --*this; return tmp; }
+	Self& operator ++ (){ _node = _node->_next; return *this; };
+	Self operator ++ (int){ Self tmp = *this; ++*this; return tmp; }
+	Self& operator -- (){ _node = _node->_prev; return *this; };
+	Self& operator -- (int){ Self tmp = *this; --*this; return tmp; }
 
 };
 
@@ -61,8 +64,9 @@ class List
 {
 public:
 	typedef ListNode<T> Node;
-	typedef Node* link_type;
+	typedef Node* LinkType;
 	typedef ListIterator<T> iterator;
+	typedef T ValueType;
 
 	List() //头结点
 		:_head(new Node())
@@ -82,7 +86,7 @@ public:
 
 	iterator insert(iterator position, const T& x) 
 	{
-		link_type tmp = new Node(x);
+		LinkType tmp = new Node(x);
 		tmp->_next = position._node;
 		tmp->_prev = position->_prev;
 		position->_prev->_next = tmp;
@@ -101,8 +105,8 @@ public:
 
 	iterator erase(iterator position) 
 	{
-		link_type prev = position->_prev;
-		link_type next = position->_next;
+		LinkType prev = position->_prev;
+		LinkType next = position->_next;
 		prev->_next = next;
 		next->_prev = prev;
 		delete position._node;
@@ -126,10 +130,10 @@ public:
 
 	void clear()
 	{
-		link_type tmp = _head->_next;
+		LinkType tmp = _head->_next;
 		while (tmp != _head)
 		{
-			link_type cur = tmp;
+			LinkType cur = tmp;
 			tmp = tmp->_next;
 			delete cur;
 		}
@@ -189,7 +193,7 @@ public:
 		two->_prev->_next = three._node;
 		one->_prev->_next = two._node;
 
-		link_type tmp = one->_prev;
+		LinkType tmp = one->_prev;
 		one->_prev = three->_prev;
 		three->_prev = two->_prev;
 		two->_prev = tmp;
@@ -212,6 +216,6 @@ public:
 	}
 
 protected:
-	link_type _head;
+	LinkType _head;
 };
 

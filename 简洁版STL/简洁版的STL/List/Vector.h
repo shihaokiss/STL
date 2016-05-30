@@ -3,18 +3,19 @@
 template<class T>
 class Vector
 {
-	typedef T value_type;
-	typedef value_type* iterator;
-	typedef value_type& reference;
+	typedef T ValueType;
+	typedef ValueType* Pointer;
+	typedef ValueType* Iterator;
+	typedef ValueType& Reference;
 public:
-	Vector() : start(0), finish(0), end_of_storage(0) {}
+	Vector() : _start(0), _finish(0), _endOfStorage(0) {}
 
 
 	Vector(const Vector<T>& x)
 	{
-		start = allocate_and_copy(x.end() - x.begin(), x.begin());
-		finish = start + (x.end() - x.begin());
-		end_of_storage = finish;
+		_start = allocate_and_copy(x.end() - x.begin(), x.begin());
+		_finish = _start + (x.end() - x.begin());
+		_endOfStorage = _finish;
 	}
 
 	Vector<T>& operator=(const Vector<T>& x)
@@ -31,13 +32,13 @@ public:
 				int i = 0;
 				for (;i < x.size(); ++i)
 				{
-					start[i] = x[i];
+					_start[i] = x[i];
 				}
 				while (i < size())
 				{
-					start[i] = 0;
+					_start[i] = 0;
 				}
-				finish = x.finish - x.start + start;
+				_finish = x._finish - x._start + _start;
 			}
 		}
 
@@ -46,134 +47,107 @@ public:
 
 	~Vector() 
 	{
-		destroy(start);
-	}
-
-
-
-
-	iterator begin() { return start; }
-	iterator end() { return finish; }
-	size_t size() const { return size_type(end() - begin()); }
-	size_t capacity() const { return size_type(end_of_storage - begin()); }
-	bool empty() const { return begin() == end(); }
-	reference operator[](size_t n) { return *(begin() + n); }
-
-	void reserve(size_t n)
-	{
-		if (capacity() < n) 
+		if (_start)
 		{
-			const size_t old_size = size();
-			iterator tmp = allocate_and_copy(n, start);
-			destroy(start);
-			start = tmp;
-			finish = tmp + old_size;
-			end_of_storage = start + n;
+			delete[] _start;
 		}
 	}
 
-	reference front() { return *begin(); }
-	reference back() { return *(end() - 1); }
 
-	void push_back(const T& x) 
+	Iterator begin() { return _start; }
+	Iterator end() { return _finish; }
+	size_t size()  { return _finish - _start; }
+	size_t capacity() const { return _endOfStorage - _start; }
+	bool empty()  { return begin() == end(); }
+	Reference operator[](size_t n) { return *(begin() + n); }
+
+
+	Reference front() { return *begin(); }
+	Reference back() { return *(end() - 1); }
+
+	void PushBack(const T& x) 
 	{
-		if (finish != end_of_storage) 
-		{
-			*finish = x;
-			++finish;
-		}
-		else
-			insert_aux(end(), x);
+		_CheckExpand();
+
+		*_finish = x;
+		++_finish;
 	}
 
-	void Swap(Vector<T>& x) 
-	{
-		swap(start, x.start);
-		swap(finish, x.finish);
-		swap(end_of_storage, x.end_of_storage);
-	}
-
-	iterator insert(iterator position, const T& x) 
-	{
-		size_t n = position - begin();
-		if (finish != end_of_storage && position == end()) 
-		{
-			*finish = x;
-			++finish;
-		}
-		else
-			insert_aux(position, x);
-		return begin() + n;
-	}
-	
 
 	void pop_back() 
 	{
-		--finish;
+		--_finish;
 	}
 
-	iterator erase(iterator position) 
+
+	Iterator erase(Iterator position) 
 	{
 		if (position + 1 != end())
-			copy(position + 1, finish, position);
-		--finish;
+			copy(position + 1, _finish, position);
+		--_finish;
 		return position;
 	}
 
-
-	/*void resize(size_type new_size, const T& x) 
+	Iterator insert(Iterator position, const T& x)
 	{
-		if (new_size < size())
-			erase(begin() + new_size, end());
-		else
-			insert(end(), new_size - size(), x);
+		_CheckExpand();
+		Iterator tmp = end(), prev = tmp - 1;
+		while (tmp != position)
+			*tmp-- = *prev--;
+		*position = x;
+		++_finish;
+		return position + 1;
 	}
 
-	void clear() { erase(begin(), end()); }*/
+	void _CheckExpand()
+	{
+		if (_finish == _endOfStorage)
+		{
+			size_t size = capacity();
+			size_t NewCapacity = size * 2 + 3;
+			T*tmp = new T[NewCapacity];
+			memcpy(tmp, _start, sizeof(T)*size);
 
+			_start = tmp;
+			_finish = _start + size;
+			_endOfStorage = _start + NewCapacity;
+		}
+	}
+
+	void Print()
+	{
+		Iterator tmp = _start;
+		while (tmp != _finish)
+			cout << *tmp++ << "  ";
+		cout << endl;
+	}
 
 private:
-	iterator start;
-	iterator finish;
-	iterator end_of_storage;
-	iterator allocate_and_copy(size_t n, iterator it)
+	Iterator _start;
+	Iterator _finish;
+	Iterator _endOfStorage;
+
+	void Swap(Vector<T>& x)
+	{
+		swap(_start, x._start);
+		swap(_finish, x._finish);
+		swap(_endOfStorage, x._endOfStorage);
+	}
+	Iterator allocate_and_copy(size_t n, Iterator it)
 	{
 		assert(n > 0);
-		iterator* begin = new T[n];
+		Iterator begin = new T[n];
 		for (int i = 0; i < n; ++i)
 		{
 			begin[i] = it[i];
 		}
 	}
-	void destory(iterator)
+
+
+	void copy(Iterator Next, Iterator _finish, Iterator Position)
 	{
-		delete[] iterator;
-	}
-	void copy(iterator Next, iterator Finish, iterator Position)
-	{
-		while (Next != Finish)
+		while (Next != _finish)
 			*Position++ = *Next++;
 	}
-	void insert_aux(iterator it, T& x)
-	{
-		if (finish == end_of_storage)
-		{
-			size_t newcapacity = capacity() * 2 + 1;
-			iterator tmp = allocate_and_copy(newcapacity, start);
-			size_t n = size();
-			delete[] start;
-			start = tmp;
-			finish = start + n;
-			end_of_storage = start + newcapacity;
-		}
-	
-		iterator cur = finish - 1;
-		while (cur != (it - 1))
-		{
-			*cur = *(cur + 1);
-			--cur;
-		}
-		*it = x;
-		finish++;
-	}
+
 };
