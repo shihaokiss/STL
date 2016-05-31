@@ -7,6 +7,7 @@ class Vector
 	typedef ValueType* Pointer;
 	typedef ValueType* Iterator;
 	typedef ValueType& Reference;
+
 public:
 	Vector() : _start(0), _finish(0), _endOfStorage(0) {}
 

@@ -19,9 +19,12 @@ struct ListNode
 template<class T>
 struct ListIterator
 {
-	typedef T ValueType;
-	typedef T* Pointer;
-	typedef T& Reference;
+	typedef T ValueType;	 //指向对象的类型
+	typedef T* Pointer;      //指针
+	typedef T& Reference;    //引用
+	typedef ptrdiff_t DifferenceType;      //两个迭代器之间的距离
+	typedef BidirectionalIteratorTag IteratorCategory;      //迭代器类型
+
 	typedef ListNode<T>* LinkType;
 	typedef ListIterator<T> Self;
 	/*成员对象*/
