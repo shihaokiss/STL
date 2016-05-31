@@ -10,7 +10,6 @@ class Vector
 public:
 	Vector() : _start(0), _finish(0), _endOfStorage(0) {}
 
-
 	Vector(const Vector<T>& x)
 	{
 		_start = allocate_and_copy(x.end() - x.begin(), x.begin());
@@ -53,7 +52,6 @@ public:
 		}
 	}
 
-
 	Iterator begin() { return _start; }
 	Iterator end() { return _finish; }
 	size_t size()  { return _finish - _start; }
@@ -73,12 +71,10 @@ public:
 		++_finish;
 	}
 
-
 	void pop_back() 
 	{
 		--_finish;
 	}
-
 
 	Iterator erase(Iterator position) 
 	{
@@ -142,8 +138,6 @@ private:
 			begin[i] = it[i];
 		}
 	}
-
-
 	void copy(Iterator Next, Iterator _finish, Iterator Position)
 	{
 		while (Next != _finish)
