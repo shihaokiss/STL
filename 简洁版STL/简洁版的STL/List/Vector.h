@@ -1,14 +1,14 @@
 #pragma once
-
+#include"Configer.h"
 template<class T>
 class Vector
 {
+public:
 	typedef T ValueType;
 	typedef ValueType* Pointer;
 	typedef ValueType* Iterator;
 	typedef ValueType& Reference;
 
-public:
 	Vector() : _start(0), _finish(0), _endOfStorage(0) {}
 
 	Vector(const Vector<T>& x)
