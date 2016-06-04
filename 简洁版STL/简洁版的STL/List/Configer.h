@@ -8,6 +8,7 @@
 #include<stdarg.h>
 #define _list_
 #define _vector_
+#define __DEBUG__
 
 
 /*迭代器的 5 个类型*/

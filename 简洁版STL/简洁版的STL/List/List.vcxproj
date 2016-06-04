@@ -74,6 +74,7 @@
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="_Alloctaor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Test.cpp" />

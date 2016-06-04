@@ -2,6 +2,7 @@
 #include"Vector.h"
 #include"Iterator.h"
 #include"alloctaor.h"
+#include"_Alloctaor.h"
 using namespace IteratorStudy;
 using namespace Traits;
 

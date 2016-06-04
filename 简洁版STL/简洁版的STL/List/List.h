@@ -1,6 +1,7 @@
 #pragma once
 #include"Configer.h"
 
+
 template<class T>
 struct ListNode
 {
