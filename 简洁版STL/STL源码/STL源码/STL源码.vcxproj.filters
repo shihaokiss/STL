@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\algo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\algobase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\alloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\bvector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\defalloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\deque.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\function.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\hash_map.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\hash_set.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\hashtable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\heap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\iterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\map.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\multimap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\multiset.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\pair.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\pthread_alloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\rope.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\ropeimpl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\set.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\slist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_algo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_algobase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_alloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_bvector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_construct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_deque.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_function.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_hash_fun.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_hash_map.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_hash_set.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_hashtable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_heap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_iterator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_list.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_map.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_multimap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_multiset.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_numeric.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_pair.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_raw_storage_iter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_relops.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_rope.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_set.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_slist.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_stack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_tempbuf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_uninitialized.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_vector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\tempbuf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\type_traits.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\vector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\STL资料\STL 源代码\algorithm">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\deque">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\functional">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\hash_map">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\hash_set">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\iterator">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\limits">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\list">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\map">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\memory">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\numeric">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\pthread_alloc">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\queue">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\rope">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\set">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\slist">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\stack">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\utility">
+      <Filter>头文件</Filter>
+    </None>
+    <None Include="..\..\..\STL资料\STL 源代码\vector">
+      <Filter>头文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>

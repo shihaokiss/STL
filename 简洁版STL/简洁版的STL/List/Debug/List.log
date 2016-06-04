@@ -1,0 +1,34 @@
+﻿生成启动时间为 2016/6/2 14:48:30。
+     1>项目“D:\代码\GitHub\STL\简洁版STL\简洁版的STL\List\List.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         E:\软件\vs2013\应用程序\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt Test.cpp
+         Test.cpp
+     1>d:\代码\github\stl\简洁版stl\简洁版的stl\list\iterator.h(264): warning C4101: “a”: 未引用的局部变量
+                 d:\代码\github\stl\简洁版stl\简洁版的stl\list\iterator.h(296): 参见对正在编译的函数 模板 实例化“void Traits::Advance<int*,int>(InputIterator &,Distance)”的引用
+                 with
+                 [
+                     InputIterator=int *
+         ,            Distance=int
+                 ]
+     1>d:\代码\github\stl\简洁版stl\简洁版的stl\list\iterator.h(79): warning C4101: “test”: 未引用的局部变量
+                 d:\代码\github\stl\简洁版stl\简洁版的stl\list\iterator.h(85): 参见对正在编译的函数 模板 实例化“void IteratorStudy::FunImpl<I,int>(I,T)”的引用
+                 with
+                 [
+                     I=int *
+         ,            T=int
+                 ]
+                 d:\代码\github\stl\简洁版stl\简洁版的stl\list\iterator.h(91): 参见对正在编译的函数 模板 实例化“void IteratorStudy::Func<int*>(I)”的引用
+                 with
+                 [
+                     I=int *
+                 ]
+       Link:
+         E:\软件\vs2013\应用程序\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\代码\GitHub\STL\简洁版STL\简洁版的STL\Debug\List.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\代码\GitHub\STL\简洁版STL\简洁版的STL\Debug\List.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\代码\GitHub\STL\简洁版STL\简洁版的STL\Debug\List.lib" /MACHINE:X86 Debug\Test.obj
+         List.vcxproj -> D:\代码\GitHub\STL\简洁版STL\简洁版的STL\Debug\List.exe
+       BscMake:
+         E:\软件\vs2013\应用程序\VC\bin\bscmake.exe /nologo /o"D:\代码\GitHub\STL\简洁版STL\简洁版的STL\Debug\List.bsc" /n Debug\Test.sbr
+     1>已完成生成项目“D:\代码\GitHub\STL\简洁版STL\简洁版的STL\List\List.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:07.56

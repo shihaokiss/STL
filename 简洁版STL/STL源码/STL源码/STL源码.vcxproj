@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{68754AB5-E396-480E-B58A-05101CFADD40}</ProjectGuid>
+    <RootNamespace>STL源码</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\algo.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\algobase.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\alloc.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\bvector.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\defalloc.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\deque.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\function.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\hashtable.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\hash_map.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\hash_set.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\heap.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\iterator.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\list.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\map.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\multimap.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\multiset.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\pair.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\pthread_alloc.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\rope.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\ropeimpl.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\set.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\slist.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stack.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_algo.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_algobase.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_alloc.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_bvector.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_config.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_construct.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_deque.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_function.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_hashtable.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_hash_fun.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_hash_map.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_hash_set.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_heap.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_iterator.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_list.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_map.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_multimap.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_multiset.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_numeric.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_pair.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_queue.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_raw_storage_iter.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_relops.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_rope.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_set.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_slist.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_stack.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_tempbuf.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_tree.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_uninitialized.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\stl_vector.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\tempbuf.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\tree.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\type_traits.h" />
+    <ClInclude Include="..\..\..\STL资料\STL 源代码\vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\STL资料\STL 源代码\algorithm" />
+    <None Include="..\..\..\STL资料\STL 源代码\deque" />
+    <None Include="..\..\..\STL资料\STL 源代码\functional" />
+    <None Include="..\..\..\STL资料\STL 源代码\hash_map" />
+    <None Include="..\..\..\STL资料\STL 源代码\hash_set" />
+    <None Include="..\..\..\STL资料\STL 源代码\iterator" />
+    <None Include="..\..\..\STL资料\STL 源代码\limits" />
+    <None Include="..\..\..\STL资料\STL 源代码\list" />
+    <None Include="..\..\..\STL资料\STL 源代码\map" />
+    <None Include="..\..\..\STL资料\STL 源代码\memory" />
+    <None Include="..\..\..\STL资料\STL 源代码\numeric" />
+    <None Include="..\..\..\STL资料\STL 源代码\pthread_alloc" />
+    <None Include="..\..\..\STL资料\STL 源代码\queue" />
+    <None Include="..\..\..\STL资料\STL 源代码\rope" />
+    <None Include="..\..\..\STL资料\STL 源代码\set" />
+    <None Include="..\..\..\STL资料\STL 源代码\slist" />
+    <None Include="..\..\..\STL资料\STL 源代码\stack" />
+    <None Include="..\..\..\STL资料\STL 源代码\utility" />
+    <None Include="..\..\..\STL资料\STL 源代码\vector" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
