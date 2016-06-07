@@ -1,158 +1,68 @@
 #include"List.h"
 #include"Vector.h"
 #include"Iterator.h"
-#include"alloctaor.h"
 #include"_Alloctaor.h"
+#include"Trace.h"
+#include"Configer.h"
 using namespace IteratorStudy;
 using namespace Traits;
+using namespace TRACE;
+//using namespace Allocator;
 
-//void Show(List<int> LIST)
-//{
-//	List<int>::iterator it_begin = LIST.begin(), it_end = LIST.end();
-//	it_begin = LIST.begin();
-//	it_end = LIST.end();
-//	if (it_begin == it_end)
-//	{
-//		cout << "This List Is Empty!" << endl;
-//		return;
-//	}
-//
-//	while (it_begin != it_end)
-//	{
-//		cout << it_begin->_value << "->";
-//		it_begin++;
-//	}
-//	cout << endl;
-//
-//	it_begin = LIST.begin();
-//	it_end = LIST.end();
-//	while (it_begin != it_end)
-//	{
-//		--it_end;
-//		cout << it_end->_value << "->";
-//	}
-//	cout << endl;
-//	cout << endl;
-//}
-
-//void Test()
-//{
-//#ifdef _list_
-//	vector<int> VECTOR = { 0, 2, 4, 6, 8, 10 };
-//	vector<int> VECTOR1 = { 1, 3, 5, 7, 9 };
-//	List<int> list;
-//	for (int i = 0; i < 6; ++i)
-//		list.push_back(VECTOR[i]);
-//
-//	List<int> list2;
-//	for (int i = 0; i < 5; ++i)
-//		list2.push_back(VECTOR1[i]);
-//
-//	Show(list);
-//	Show(list2);
-//
-//	//list.unique();   //去重
-//	//Show(list);
-//	//List<int>::iterator ItBegin = list.begin(), ItEnd = list.end(),ItTmp;
-//	//ItTmp = ItBegin++;
-//	//list.Transfer(ItEnd,ItTmp,ItBegin);  //测试节点的交换函数
-//	//Show(list);
-//
-//	list.merge(list2);
-//	Show(list);
-//	list.reverse();
-//	Show(list);
-//
-//#endif
-//#ifdef _LIST_
-//	vector<int> Vector = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-//	List<int> LIST;
-//	for (int i = 5; i < 10; ++i)
-//		LIST.push_back(Vector[i]);
-//	for (int i = 4; i >= 0; --i)
-//		LIST.push_front(Vector[i]);
-//
-//	/*Show(LIST);
-//	Show(list);
-//	cout << endl;
-//	LIST.Swap(list); 
-//	Show(LIST);
-//	Show(list);
-//
-//	cout << LIST.empty() << " ";
-//	cout << LIST.front() << " ";
-//	cout << LIST.back() << endl;*/
-//
-//	Show(LIST);
-//	List<int>::iterator it = LIST.begin();
-//	it++;
-//	LIST.erase(it);  //删除
-//	Show(LIST); 
-//	LIST.insert(LIST.end(), 5, 100);
-//	Show(LIST);
-//	LIST.resize(20,0);  //重新定义长度
-//	Show(LIST);
-//	//LIST.resize(10);   //重定义长度
-//	//Show(LIST);
-//	//LIST.pop_back();   //尾删
-//	//LIST.pop_front();  //头删
-//	//Show(LIST);
-//	LIST.remove(0);   //删除相应的元素
-//	Show(LIST);
-//#endif
-//
-//}
-
-void Test2()
+void Test()
 {
-	Vector<int > v1;   
-	v1.PushBack(1);   
-	v1.PushBack(2);
-	v1.PushBack(3); 
-	v1.PushBack(4);     
-	v1.PushBack(5);    
-	v1.PushBack(6);    
-	v1.PushBack(7);   
-	v1.PushBack(8);
-	v1.Print();
+	//测试Trace
+	/*char* ch = "shihao";
+	int c = 100;
+	__TRECE__("%s,%d\n", ch, c);*/
 
-	Vector<int>::Iterator iter = v1.begin();
-	iter = iter + 2;
-	/*cout << v1.back() << endl;
-	cout << v1.capacity() << endl;;
-	cout << v1.empty() << endl;;
-	v1.erase(v1.begin() + 5);
-	v1.Print();
-	cout << v1.front() << endl;;
-	v1.insert(v1.begin() + 2, 100);
-	v1.Print();
-	v1.pop_back();
-	v1.Print();
-	v1.PushBack(1000);
-	v1.Print();
-	cout << v1.size() << endl;;
+	//测试一级空间配置器
+	/*Allocator::__MallocAllocTemplate<0> TEST;
+	void* p = TEST.Allocate(100);
+	TEST.Reallocate(p, 100);
+	TEST.Deallocate(p);
+	TEST.OomMalloc(100);
+	TEST.OomRealloc(p,100);*/
 
-	Vector<int > v2;
-	v2.PushBack(10);
-	v2.PushBack(20);
-	v2.PushBack(30);
-	v2.PushBack(40);
-	v2.PushBack(50);
-	v2.PushBack(60);
-	v2.PushBack(70);
-	v2.PushBack(80);
-	v2.Print();*/
+	/*测试二级空间配置器 （未封装之前）*/
+	//Allocator::__DefaultAllocTemplate<0, 0> TEST;
+	//void* p[30];
+	//for (int i = 0; i < 20; ++i)    //将自由链表中的内存耗尽
+	//{
+	//	p[i] = TEST.Allocate(10);
+	//}                              
+	//p[20] = TEST.Allocate(128);    //重新申请空间
+	//p[21] = TEST.Allocate(128);
+	//p[22] = TEST.Allocate(128);
+	//p[23] = TEST.Allocate(128);
+	//TEST.Deallocate(p[23],128);    //向自由链表中挂节点
+	//TEST.Deallocate(p[22], 128);
+	//TEST.Deallocate(p[21], 128);
+	//p[24] = TEST.Allocate(1024);
+	//TEST.Deallocate(p[24], 1024);
+	//p[25] = TEST.Allocate(7);     //测试 Reallocate 函数
+	//TEST.Reallocate(p[25], 7, 25);
+
+	/*测试对空间配置器封装后的效果*/
+	int* p[30];
+	for (int i = 0; i < 20; ++i)
+	{
+		p[i] = SimplateAlloc<int>::Allocate(10);
+	}
+	p[20] = SimplateAlloc<int>::Allocate(15);
+	p[21] = SimplateAlloc<int>::Allocate(15);
+	p[22] = SimplateAlloc<int>::Allocate(15);
+	SimplateAlloc<int>::Deallocate(p[20],15);
+	SimplateAlloc<int>::Deallocate(p[21], 15);
+	SimplateAlloc<int>::Deallocate(p[22], 15);
 }
-
 
 void main()
 {
-	//Test();   //list 测试
-	//Test2();  //vector 测试
-	//Traits::DistanceTest();
-	//Traits::AdvanceTest();
-
-	string str("shihaohhhhhhhhhh");
-	size_t count = str.rfind('h');
-	int count1 = string::npos;
+	Test();
 }
+
+
+
+
+

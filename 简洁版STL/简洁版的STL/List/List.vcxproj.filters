@@ -27,10 +27,10 @@
     <ClInclude Include="Iterator.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="alloctaor.h">
+    <ClInclude Include="_Alloctaor.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="_Alloctaor.h">
+    <ClInclude Include="Trace.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -69,10 +69,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="alloctaor.h" />
     <ClInclude Include="Configer.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="Trace.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="_Alloctaor.h" />
   </ItemGroup>
