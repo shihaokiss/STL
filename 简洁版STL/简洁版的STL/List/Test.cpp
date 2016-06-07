@@ -44,22 +44,39 @@ void Test()
 	//TEST.Reallocate(p[25], 7, 25);
 
 	/*测试对空间配置器封装后的效果*/
-	int* p[30];
-	for (int i = 0; i < 20; ++i)
-	{
-		p[i] = SimplateAlloc<int>::Allocate(10);
-	}
-	p[20] = SimplateAlloc<int>::Allocate(15);
-	p[21] = SimplateAlloc<int>::Allocate(15);
-	p[22] = SimplateAlloc<int>::Allocate(15);
-	SimplateAlloc<int>::Deallocate(p[20],15);
-	SimplateAlloc<int>::Deallocate(p[21], 15);
-	SimplateAlloc<int>::Deallocate(p[22], 15);
+	//int* p[30];
+	//for (int i = 0; i < 20; ++i)
+	//{
+	//	p[i] = SimplateAlloc<int>::Allocate(10);
+	//}
+	//p[20] = SimplateAlloc<int>::Allocate(15);
+	//p[21] = SimplateAlloc<int>::Allocate(15);
+	//p[22] = SimplateAlloc<int>::Allocate(15);
+	//SimplateAlloc<int>::Deallocate(p[20],15);
+	//SimplateAlloc<int>::Deallocate(p[21], 15);
+	//SimplateAlloc<int>::Deallocate(p[22], 15);
 }
 
+void Test(int)
+{
+	class Date
+	{
+	public:
+		Date(int a,int b) :_a(a), _b(b){}
+		Date(const Date& date) :_a(date._a), _b(date._b){}
+	private:
+		int _a;
+		int _b;
+	};
+
+	Date date(10, 20);
+	Date* p = (Date*)malloc(sizeof(Date));
+	new(p)Date(10, 20);
+	new(p)Date(date);
+}
 void main()
 {
-	Test();
+	Test(0);
 }
 
 
