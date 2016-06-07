@@ -1,5 +1,6 @@
 #pragma once
 #include"Configer.h"
+
 namespace TRACE
 {
 	//获取文件名

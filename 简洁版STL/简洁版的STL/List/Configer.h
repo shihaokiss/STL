@@ -1,3 +1,21 @@
+/*****************************************************************************
+文件名: STL 简单的实现
+
+创建时间: 2016-6-4
+
+作者: 石豪
+
+所在单位: 陕西科技大学
+
+实现功能: 仿照 STL 的模式自己来构建一个简易版的 STL
+备注: 版本一
+
+修改记录：
+日期       版本        修改人             修改内容
+
+
+*****************************************************************************/
+
 #pragma once
 #include<iostream>
 #include<vector>
@@ -14,13 +32,7 @@
 #define __DEBUG__
 #define __WIN32__
 
-/*迭代器的 5 个类型*/
-struct InputIteratorTag {};
-struct OutputIteratorTag {};
-struct ForwardIteratorTag : public InputIteratorTag {};
-struct BidirectionalIteratorTag : public ForwardIteratorTag { BidirectionalIteratorTag(){} };
-struct RandomAccessIteratorTag : public BidirectionalIteratorTag { RandomAccessIteratorTag(){} };
-//这里出现的继承是由于有时候需要向上兼容的原因
-
 using namespace std;
+
+
 

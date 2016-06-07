@@ -1,6 +1,6 @@
 #pragma once
 #include"Configer.h"
-
+#include"Iterator.h"
 
 template<class T>
 struct ListNode

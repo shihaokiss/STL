@@ -1,16 +1,58 @@
+#include"Configer.h"
 #include"List.h"
 #include"Vector.h"
 #include"Iterator.h"
 #include"_Alloctaor.h"
 #include"Trace.h"
-#include"Configer.h"
+#include"TypeTraits.h"
+
 using namespace IteratorStudy;
 using namespace Traits;
 using namespace TRACE;
-//using namespace Allocator;
+
+
+/*****************************************************************************************/
+//²âÊÔ Distance£¬Advance º¯Êý
+/*****************************************************************************************/
+//void DistanceTest()
+//{
+//	List<int> LIST;
+//	Vector<int> VECTOR;
+//	for (int i = 0; i < 10; ++i)
+//	{
+//		LIST.push_back(i);
+//		VECTOR.PushBack(i);
+//	}
+//
+//	cout << Traits::Distance(LIST.begin(), LIST.end()) << endl;
+//	cout << Traits::Distance(VECTOR.begin(), VECTOR.end()) << endl;
+//}
+//
+//void AdvanceTest()
+//{
+//	List<int> LIST;
+//	Vector<int> VECTOR;
+//	for (int i = 0; i < 10; ++i)
+//	{
+//		LIST.push_back(i);
+//		VECTOR.PushBack(i);
+//	}
+//
+//	List<int>::iterator LIST_IT = LIST.begin();
+//	Vector<int>::Iterator VECTOR_IT = VECTOR.begin();
+//	Traits::Advance(LIST_IT, 5);
+//	Traits::Advance(VECTOR_IT, 8);
+//
+//	cout << *LIST_IT << endl;
+//	cout << *VECTOR_IT << endl;
+//}
 
 void Test()
 {
+	//²âÊÔÀàÐÍÝÍÈ¡»ú
+	/*DistanceTest();
+	AdvanceTest();*/
+
 	//²âÊÔTrace
 	/*char* ch = "shihao";
 	int c = 100;
@@ -55,28 +97,17 @@ void Test()
 	//SimplateAlloc<int>::Deallocate(p[20],15);
 	//SimplateAlloc<int>::Deallocate(p[21], 15);
 	//SimplateAlloc<int>::Deallocate(p[22], 15);
+
+	/**/
+
 }
 
-void Test(int)
-{
-	class Date
-	{
-	public:
-		Date(int a,int b) :_a(a), _b(b){}
-		Date(const Date& date) :_a(date._a), _b(date._b){}
-	private:
-		int _a;
-		int _b;
-	};
 
-	Date date(10, 20);
-	Date* p = (Date*)malloc(sizeof(Date));
-	new(p)Date(10, 20);
-	new(p)Date(date);
-}
+
+
 void main()
 {
-	Test(0);
+	Test();
 }
 
 

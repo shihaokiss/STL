@@ -1,24 +1,12 @@
 #pragma once
-#include"List.h"
-#include"Vector.h"
 
-/*****************************************************************************
-
-文件名: Iterator.h  
-
-创建时间: 2016 - 5 - 30 
-
-作者: 石豪
-
-所在单位: 陕西科技大学
-
-实现功能: 对迭代器功能的简单实现 与 类型萃取的机器
-备注: STL源码剖析
-
-修改记录：
-日期       版本        修改人             修改内容
-                         
-*****************************************************************************/
+/*迭代器的 5 个类型*/
+struct InputIteratorTag {};
+struct OutputIteratorTag {};
+struct ForwardIteratorTag : public InputIteratorTag {};
+struct BidirectionalIteratorTag : public ForwardIteratorTag { BidirectionalIteratorTag(){} };
+struct RandomAccessIteratorTag : public BidirectionalIteratorTag { RandomAccessIteratorTag(){} };
+//这里出现的继承是由于有时候需要向上兼容的原因
 
 
 namespace IteratorStudy
@@ -265,41 +253,9 @@ namespace Traits
 		__Advance(it, n, typename IteratorTraits<InputIterator>::IteratorCategory());
 	}
 
-
-	void DistanceTest()
-	{
-		List<int> LIST;
-		Vector<int> VECTOR;
-		for (int i = 0; i < 10; ++i)
-		{
-			LIST.push_back(i);
-			VECTOR.PushBack(i);
-		}
-		
-		cout << Distance(LIST.begin(), LIST.end()) << endl;
-		cout << Distance(VECTOR.begin(), VECTOR.end()) << endl;
-	}
-
-	void AdvanceTest()
-	{
-		List<int> LIST;
-		Vector<int> VECTOR;
-		for (int i = 0; i < 10; ++i)
-		{
-			LIST.push_back(i);
-			VECTOR.PushBack(i);
-		}
-
-		List<int>::iterator LIST_IT = LIST.begin();
-		Vector<int>::Iterator VECTOR_IT = VECTOR.begin();
-		Advance(LIST_IT, 5);
-		Advance(VECTOR_IT, 8);
-
-		cout << *LIST_IT << endl;
-		cout << *VECTOR_IT << endl;
-	}
-
 }
+
+
 
 
 
