@@ -6,10 +6,6 @@
 #include"Trace.h"
 #include"TypeTraits.h"
 
-using namespace IteratorStudy;
-using namespace Traits;
-using namespace TRACE;
-
 
 /*****************************************************************************************/
 //²âÊÔ Distance£¬Advance º¯Êý
@@ -107,7 +103,9 @@ void Test()
 
 void main()
 {
-	Test();
+	//Test();
+	//ListTest::Test();
+	ListTest::TestReverseIterator();
 }
 
 

@@ -45,11 +45,11 @@ struct ListIterator
 	};
 
 	/*重载各种方法*/
-	bool operator == (Self& It)
+	bool operator == (const Self& It)
 	{
 		return _node == It._node;
 	}
-	bool operator!=(Self& It)
+	bool operator!=(const Self& It)
 	{
 		return _node != It._node;
 	}
@@ -222,4 +222,54 @@ public:
 protected:
 	LinkType _head;
 };
+
+
+
+/**************************************************************************/
+//对List的测试
+/**************************************************************************/
+
+namespace ListTest
+{
+//#define __REVERSE__
+
+	void Test()
+	{
+		List<int> LIST;
+		for (int i = 0; i < 10; ++i)
+			LIST.push_back(i);
+		List<int>::iterator it_begin = LIST.begin(), it_end = LIST.end();
+		
+		while (it_begin != it_end)
+		{
+			cout << *it_begin << " ";
+			++it_begin;
+		}
+		cout << endl;
+
+		it_begin = LIST.begin();
+		cout << it_begin->_value << endl;
+	}
+
+	void TestReverseIterator()
+	{
+		List<int> LIST;
+		for (int i = 0; i < 10; ++i)
+			LIST.push_back(i);
+#ifndef __REVERSE__
+		/*正向迭代器*/
+		List<int>::iterator it_begin = LIST.begin(), it_end = LIST.end();
+#else
+		/*反向迭代器*/
+		ReverseIterator<ListIterator<int>> it_begin(LIST.end());
+		ReverseIterator<ListIterator<int>> it_end(LIST.begin());
+#endif
+		while (it_begin != it_end)
+		{
+			cout << *it_begin << " ";
+			++it_begin;
+		}
+		cout << endl;
+	}
+}
 
