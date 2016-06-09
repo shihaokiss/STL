@@ -9,7 +9,7 @@ struct ListNode
 {
 	typedef ListNode<T> Node;
 	ListNode()
-		:_value(0),_next(NULL), _prev(NULL)
+		:_next(NULL), _prev(NULL)
 	{}
 	ListNode(const T& value) 
 		:_next(NULL), _prev(NULL), _value(value)
@@ -26,9 +26,9 @@ struct ListNode
 template<class T>
 struct ListIterator
 {
-	typedef ListNode<T> ValueType;	 //指向对象的类型
-	typedef ListNode<T>* Pointer;      //指针
-	typedef ListNode<T>& Reference;    //引用
+	typedef T ValueType;	 //指向对象的类型
+	typedef T* Pointer;      //指针
+	typedef T& Reference;    //引用
 	typedef ptrdiff_t DifferenceType;      //两个迭代器之间的距离
 	typedef BidirectionalIteratorTag IteratorCategory;      //迭代器类型
 
@@ -60,7 +60,7 @@ struct ListIterator
 		return _node != It._node;
 	}
 	LinkType operator -> (){ return _node; };
-	T& operator* (){ return _node->_value; };
+	Reference operator* (){ return _node->_value; };
 	Self& operator ++ (){ _node = _node->_next; return *this; };
 	Self operator ++ (int){ Self tmp = *this; ++*this; return tmp; }
 	Self& operator -- (){ _node = _node->_prev; return *this; };
@@ -80,11 +80,23 @@ public:
 	typedef SimplateAlloc<Node, _Alloc> ListNodeAllocator;
 
 	List() //头结点
-		:_head(new Node())
+		:_head(CreatNode(T()))
 	{
 		_head->_next = _head;
 		_head->_prev = _head;
 	}
+	/*析构函数*/
+	~List()
+	{
+		iterator it_begin = begin(), it_end = end(),tmp;
+		while (it_begin != it_end)
+		{
+			tmp = it_begin++;
+			DestoryNode(tmp._node);
+		}
+		DestoryNode(it_end._node);
+	}
+
 
 	iterator begin() { return _head->_next; }
 	iterator end() { return _head; }
@@ -116,6 +128,15 @@ public:
 
 	void push_front(const T& x) { insert(begin(), x); }
 	void push_back(const T& x) { insert(end(), x); }
+	void push_back(const LinkType& p)
+	{
+		LinkType tmp = _head->_next;
+		p->_next = tmp;
+		tmp->_prev = p;
+
+		_head->_next = p;
+		p->_prev = _head;
+	}
 
 	iterator erase(iterator position) 
 	{
@@ -234,13 +255,13 @@ protected:
 	LinkType CreatNode(const T& value)  //配置空间并构造对象
 	{
 		LinkType Wget = ListNodeAllocator::Allocate();
-		Construct(Wget, value);
+		Construct(&Wget->_value, value);
 		return Wget;
 	}  
 
 	void DestoryNode(LinkType p)    //析构对象并释放内存
 	{
-		Destory(p);
+		Destory(&p->_value);
 		ListNodeAllocator::Deallocate(p);
 	}
 };
@@ -254,6 +275,28 @@ protected:
 namespace ListTest
 {
 //#define __REVERSE__
+	struct Date
+	{
+		friend ostream& operator<<(ostream& show, const Date& date);
+		int year;
+		int month;
+		int day;
+		Date() :year(0), month(0), day(0){};
+		Date(int y, int m, int d) :year(y), month(m), day(d){ cout << "CreatFun" << endl; };
+		Date(const Date& date) :year(date.year), month(date.month), day(date.day){ cout << "CopyCreatFun" << endl; };
+		Date& operator = (const Date& date) 
+		{ 
+			year = date.year;
+			month = date.month;
+			day = date.day;
+		}
+		~Date(){ cout << "This is Date FreeFun" << endl; };
+	};
+	ostream& operator<<(ostream& show, const Date& date)
+	{
+		printf("year: %d  month: %d  day: %d\n", date.year, date.month, date.day);
+		return show;
+	}
 
 	void Test()
 	{
@@ -270,7 +313,7 @@ namespace ListTest
 		cout << endl;
 
 		it_begin = LIST.begin();
-		cout << it_begin->_value << endl;
+		cout << *it_begin << endl;
 	}
 
 	void TestReverseIterator()
@@ -297,22 +340,25 @@ namespace ListTest
 	void TestConstruct()
 	{
 		/*CreatNode 的测试*/
-		List<int> LIST;
+		List<Date> LIST;
+		Date date[10] = { { 0, 0, 0 }, { 1, 1, 1 }, { 2, 2, 2 }, { 3, 3, 3 },
+		{ 4, 4, 4 }, { 5, 5, 5 }, { 6, 6, 6 }, { 7, 7, 7 }, { 8, 8, 8 }, { 9, 9, 9 } };
 		for (int i = 0; i < 10; ++i)
-			LIST.push_back(i);
-		List<int>::iterator it_begin = LIST.begin(), it_end = LIST.end();
+			LIST.push_back(date[i]);
+		List<Date>::iterator it_begin = LIST.begin(), it_end = LIST.end();
 
 		while (it_begin != it_end)
 		{
-			cout << *it_begin << " ";
+			cout << *it_begin;
 			++it_begin;
 		}
-		cout << endl;
 		cout << "LIST 的大小为 " << LIST.size() << endl;
 
-		it_begin = LIST.begin();
+
+		/*it_begin = LIST.begin();
 		while (it_begin != it_end)
-			it_begin = LIST.erase(it_begin);
+			it_begin = LIST.erase(it_begin);*/
+		//Destory(it_begin, it_end);
 
 		cout << "LIST 的大小为 " << LIST.size() << endl;
 	}

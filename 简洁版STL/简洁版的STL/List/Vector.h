@@ -104,6 +104,7 @@ public:
 		{
 			size_t size = capacity();
 			size_t NewCapacity = size * 2 + 3;
+
 			T*tmp = new T[NewCapacity];
 			memcpy(tmp, _start, sizeof(T)*size);
 
@@ -146,5 +147,7 @@ private:
 		while (Next != _finish)
 			*Position++ = *Next++;
 	}
+
+
 
 };

@@ -37,7 +37,7 @@ inline void __Destory(Iterator& first,const Iterator& end, __FalseType)
 {
 	while (first != end)
 	{
-		Destory(first.operator->());
+		Destory(&(*first));
 		first++;
 	}
 }
