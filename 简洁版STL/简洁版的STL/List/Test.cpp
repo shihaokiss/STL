@@ -105,7 +105,8 @@ void main()
 {
 	//Test();
 	//ListTest::Test();
-	ListTest::TestReverseIterator();
+	//ListTest::TestReverseIterator();
+	ListTest::TestConstruct();
 }
 
 

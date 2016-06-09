@@ -29,7 +29,7 @@
 #define _vector_
 
 //#define __USE_MALLOC__
-#define __DEBUG__
+//#define __DEBUG__
 #define __WIN32__
 
 using namespace std;

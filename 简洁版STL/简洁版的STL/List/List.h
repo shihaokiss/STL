@@ -1,6 +1,8 @@
 #pragma once
 #include"Configer.h"
 #include"Iterator.h"
+#include"_Alloctaor.h"
+#include"Construct.h"
 
 template<class T>
 struct ListNode
@@ -12,6 +14,10 @@ struct ListNode
 	ListNode(const T& value) 
 		:_next(NULL), _prev(NULL), _value(value)
 	{}
+	~ListNode()
+	{
+		cout << "DestoryNode" << endl;
+	}
 	Node* _next;
 	Node* _prev;
 	T _value;
@@ -20,9 +26,9 @@ struct ListNode
 template<class T>
 struct ListIterator
 {
-	typedef T ValueType;	 //指向对象的类型
-	typedef T* Pointer;      //指针
-	typedef T& Reference;    //引用
+	typedef ListNode<T> ValueType;	 //指向对象的类型
+	typedef ListNode<T>* Pointer;      //指针
+	typedef ListNode<T>& Reference;    //引用
 	typedef ptrdiff_t DifferenceType;      //两个迭代器之间的距离
 	typedef BidirectionalIteratorTag IteratorCategory;      //迭代器类型
 
@@ -53,7 +59,7 @@ struct ListIterator
 	{
 		return _node != It._node;
 	}
-	LinkType operator -> (){ return _node; }
+	LinkType operator -> (){ return _node; };
 	T& operator* (){ return _node->_value; };
 	Self& operator ++ (){ _node = _node->_next; return *this; };
 	Self operator ++ (int){ Self tmp = *this; ++*this; return tmp; }
@@ -63,7 +69,7 @@ struct ListIterator
 };
 
 
-template<class T>
+template<class T, class Alloc = _Alloc>
 class List
 {
 public:
@@ -71,6 +77,7 @@ public:
 	typedef Node* LinkType;
 	typedef ListIterator<T> iterator;
 	typedef T ValueType;
+	typedef SimplateAlloc<Node, _Alloc> ListNodeAllocator;
 
 	List() //头结点
 		:_head(new Node())
@@ -82,7 +89,10 @@ public:
 	iterator begin() { return _head->_next; }
 	iterator end() { return _head; }
 	bool empty() const { return _head->_next == _head; }
-
+	size_t size()
+	{
+		return Distance(begin(), end());
+	}
 	T& front() { return *begin(); }
 	T& back() { return *(--end()); }
 
@@ -90,7 +100,7 @@ public:
 
 	iterator insert(iterator position, const T& x) 
 	{
-		LinkType tmp = new Node(x);
+		LinkType tmp = CreatNode(x);      //开辟空间并调用全局的构造工具
 		tmp->_next = position._node;
 		tmp->_prev = position->_prev;
 		position->_prev->_next = tmp;
@@ -113,7 +123,7 @@ public:
 		LinkType next = position->_next;
 		prev->_next = next;
 		next->_prev = prev;
-		delete position._node;
+		DestoryNode(position._node);   //调用全局的析构工具并释放空间
 		return next;
 	}
 
@@ -221,6 +231,18 @@ public:
 
 protected:
 	LinkType _head;
+	LinkType CreatNode(const T& value)  //配置空间并构造对象
+	{
+		LinkType Wget = ListNodeAllocator::Allocate();
+		Construct(Wget, value);
+		return Wget;
+	}  
+
+	void DestoryNode(LinkType p)    //析构对象并释放内存
+	{
+		Destory(p);
+		ListNodeAllocator::Deallocate(p);
+	}
 };
 
 
@@ -270,6 +292,29 @@ namespace ListTest
 			++it_begin;
 		}
 		cout << endl;
+	}
+
+	void TestConstruct()
+	{
+		/*CreatNode 的测试*/
+		List<int> LIST;
+		for (int i = 0; i < 10; ++i)
+			LIST.push_back(i);
+		List<int>::iterator it_begin = LIST.begin(), it_end = LIST.end();
+
+		while (it_begin != it_end)
+		{
+			cout << *it_begin << " ";
+			++it_begin;
+		}
+		cout << endl;
+		cout << "LIST 的大小为 " << LIST.size() << endl;
+
+		it_begin = LIST.begin();
+		while (it_begin != it_end)
+			it_begin = LIST.erase(it_begin);
+
+		cout << "LIST 的大小为 " << LIST.size() << endl;
 	}
 }
 

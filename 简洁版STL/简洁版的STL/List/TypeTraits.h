@@ -4,7 +4,7 @@
 /*****************************************************************************
 功能描述： 类型的萃取
 
-类 /函数：template<class __TYPE> class TypeTraits{}
+类 /函数：template<struct __TYPE> struct TypeTraits{}
 
 简    介：通过函数的特化，来实现类型的萃取
 *****************************************************************************/
@@ -16,7 +16,7 @@ struct __FalseType
 
 
 template<class __TYPE>
-class TypeTraits
+struct TypeTraits
 {
 	typedef __FalseType HasTrivialDefaultConstructor;
 	typedef __FalseType HasTrivialCopyConstructor;
@@ -27,7 +27,7 @@ class TypeTraits
 };
 
 template<>
-class TypeTraits<bool>
+struct TypeTraits<bool>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -38,7 +38,7 @@ class TypeTraits<bool>
 };
 
 template<>
-class TypeTraits<char>
+struct TypeTraits<char>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -49,7 +49,7 @@ class TypeTraits<char>
 };
 
 template<>
-class TypeTraits<unsigned char>
+struct TypeTraits<unsigned char>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -60,7 +60,7 @@ class TypeTraits<unsigned char>
 };
 
 template<>
-class TypeTraits<short>
+struct TypeTraits<short>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -71,7 +71,7 @@ class TypeTraits<short>
 };
 
 template<>
-class TypeTraits<unsigned short>
+struct TypeTraits<unsigned short>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -82,7 +82,7 @@ class TypeTraits<unsigned short>
 };
 
 template<>
-class TypeTraits<int>
+struct TypeTraits<int>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -93,7 +93,7 @@ class TypeTraits<int>
 };
 
 template<>
-class TypeTraits<unsigned int>
+struct TypeTraits<unsigned int>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -104,7 +104,7 @@ class TypeTraits<unsigned int>
 };
 
 template<>
-class TypeTraits<float>
+struct TypeTraits<float>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -115,7 +115,7 @@ class TypeTraits<float>
 };
 
 template<>
-class TypeTraits<long>
+struct TypeTraits<long>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -126,7 +126,7 @@ class TypeTraits<long>
 };
 
 template<>
-class TypeTraits<unsigned long>
+struct TypeTraits<unsigned long>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -137,7 +137,7 @@ class TypeTraits<unsigned long>
 };
 
 template<>
-class TypeTraits<long long>
+struct TypeTraits<long long>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -148,7 +148,7 @@ class TypeTraits<long long>
 };
 
 template<>
-class TypeTraits<unsigned long long>
+struct TypeTraits<unsigned long long>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -159,7 +159,7 @@ class TypeTraits<unsigned long long>
 };
 
 template<>
-class TypeTraits<long double>
+struct TypeTraits<long double>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;
@@ -170,7 +170,7 @@ class TypeTraits<long double>
 };
 
 template<class TYPE>
-class TypeTraits<TYPE*>
+struct TypeTraits<TYPE*>
 {
 	typedef __TrueType HasTrivialDefaultConstructor;
 	typedef __TrueType HasTrivialCopyConstructor;

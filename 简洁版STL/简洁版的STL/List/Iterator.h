@@ -201,6 +201,30 @@ protected:
 
 
 
+/*****************************************************************************
+功能描述： 通过内嵌类型，来推演出目标类型，以便调度相应的函数；
+
+类 /函数： 
+
+简    介： 
+*****************************************************************************/
+
+/*推演出迭代器的类型，并返回一个该迭代器类型的对象*/
+template<class Iterator>
+inline typename IteratorTraits<Iterator>::IteratorCategory
+IteratorCategory(const Iterator&)
+{
+	return IteratorTraits<Iterator>::IteratorCategory();
+}
+
+/*推演出迭代器所指类型的指针，并返回这个指针*/
+template<class Iterator>
+inline typename IteratorTraits<Iterator>::Pointer
+IteratorReferentType(const Iterator&)
+{
+	return static_cast<typename IteratorTraits<Iterator>::Pointer>(0);
+}
+
 namespace TraitsTest
 {
 
