@@ -5,7 +5,7 @@
 #include"_Alloctaor.h"
 #include"Trace.h"
 #include"TypeTraits.h"
-
+#include"TestMapSet.h"
 
 /*****************************************************************************************/
 //²âÊÔ Distance£¬Advance º¯Êý
@@ -99,15 +99,25 @@
 //}
 
 
-
-
-void main()
+void Test1()
 {
 	//Test();
 	//ListTest::Test();
 	//ListTest::TestReverseIterator();
-	ListTest::TestConstruct();
+	//ListTest::TestConstruct();
+	TestMapSet::TestMap();
+	cout << endl;
+	TestMapSet::TestMutilmap();
+	cout << endl;
+	TestMapSet::TestUnorderMap();
+	cout << endl;
+	TestMapSet::TestMutilUnorderMap();
 }
+
+
+
+
+
 
 
 

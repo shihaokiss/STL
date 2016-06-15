@@ -73,6 +73,7 @@
     <ClInclude Include="Construct.h" />
     <ClInclude Include="Iterator.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="TestMapSet.h" />
     <ClInclude Include="Trace.h" />
     <ClInclude Include="TypeTraits.h" />
     <ClInclude Include="Vector.h" />
