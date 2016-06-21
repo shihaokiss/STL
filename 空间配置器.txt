@@ -1,0 +1,3 @@
+http://www.cnblogs.com/yc_sunniwell/archive/2010/06/24/1764231.html  volatile 关键字
+
+http://blog.csdn.net/youyoulg/article/details/6843332   //四种强制类型的转换（C++）
